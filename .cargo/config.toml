@@ -1,0 +1,4 @@
+# Change default linker to lld
+# Linker is a program that takes one or more compiler-generated files and combines them into a single executable file, library or another "object" file
+[target.x86_64-unknown-linux-gnu]
+rustflags = ["-C", "linker=clang", "-C", "link-arg=-fuse-ld=lld"]
