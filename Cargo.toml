@@ -13,6 +13,7 @@ path = "src/main.rs"
 name = "zero2prod_hannukorvala"
 
 [dependencies]
-actix-web = "4"
-tokio = { version = "1", features= ["macros", "rt-multi-thread"]}
-reqwest = "0.11"
+actix-web = "4"     # web framework
+tokio = { version = "1", features= ["macros", "rt-multi-thread"]} # asynchronous rust runtime
+reqwest = "0.11" # provides a higher-level HTTP client
+serde = { version = "1", features = ["derive"]} # data structures that know how to serialize and deserialize themselves
