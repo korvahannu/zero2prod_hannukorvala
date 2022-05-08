@@ -17,3 +17,16 @@ actix-web = "4"     # web framework
 tokio = { version = "1", features= ["macros", "rt-multi-thread"]} # asynchronous rust runtime
 reqwest = "0.11" # provides a higher-level HTTP client
 serde = { version = "1", features = ["derive"]} # data structures that know how to serialize and deserialize themselves
+config = "0.11"
+
+[dependencies.sqlx]
+version = "0.5.7"
+default-features = false
+features = [
+    "runtime-actix-rustls", # tell sqlx to use the actix runtime for its futures and rustls as TLS backend
+    "macros",               # macros gives us access to sqlx::query! and ::query_as!
+    "postgres",             # postgres unlocks Postgres-sepcific functonality
+    "uuid",                 # uuid adds support for mapping SQL UUIDs to the Uuid type from the uuid crate
+    "chrono",               # support for mapping SQL timestamptz to the DateTime<T> from the chrono crate
+    "migrate"               # migrate gives us access to the same functions used under the hood by sqlx-cli to manage migrations
+]
